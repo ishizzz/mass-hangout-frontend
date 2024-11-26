@@ -1,0 +1,45 @@
+.sidebar {
+  background-color: #800000; /* Sidebar background */
+  height: 100vh; /* Full height */
+  width: 80px; /* Fixed width for icons only */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+
+.sidebar-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em; /* Icon size */
+  margin-bottom: 30px; /* Space between individual icons */
+  display: flex;
+  justify-content: center; /* Center icon horizontally */
+  align-items: center; /* Center icon vertically */
+  width: 45%; /* Take full width */
+  padding: 10px 10px;
+  height: 60px; /* Set fixed height for each icon */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.sidebar-link:hover {
+  background-color: #b42020; /* Highlight color on hover */
+  border-radius: 5px; /* Optional: Rounded corners on hover */
+}
+
+.sidebar-link.active {
+  background-color: #ffffff; /* Active tab background color */
+  color: #800000; /* Active tab icon color */
+  border-radius: 5px; /* Match hover style for active tab */
+}
+
+.icon {
+  font-size: 1.8em; /* Icon size */
+}
+
+/* Spacer with fixed height to separate Home from other icons */
+.fixed-spacer {
+  height: 50px; /* Adjust this value for spacing */
+  width: 100%; /* Match sidebar width */
+}
