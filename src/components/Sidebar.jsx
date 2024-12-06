@@ -1,32 +1,33 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { FaHome, FaUserFriends, FaCalendarAlt, FaComments, FaUser } from "react-icons/fa"; // Example icons from React Icons
+import { FaHome, FaUserFriends, FaCalendarAlt, FaComments, FaUser } from "react-icons/fa";
 import "./Sidebar.css";
 
 const Sidebar = () => {
+  const menuItems = [
+    { path: "/", icon: FaHome, label: "Home" },
+    { path: "/groups", icon: FaUserFriends, label: "Groups" },
+    { path: "/events", icon: FaCalendarAlt, label: "Events" },
+    { path: "/chat", icon: FaComments, label: "Chat" },
+    { path: "/profile", icon: FaUser, label: "Profile" }
+  ];
+
   return (
     <div className="sidebar">
-      {/* Home button at the top */}
-      <NavLink to="/" className="sidebar-link" activeclassname="active">
-        <FaHome className="icon" />
-      </NavLink>
-
-      {/* Fixed spacer */}
-      <div className="fixed-spacer"></div>
-
-      {/* Other icons below */}
-      <NavLink to="/groups" className="sidebar-link" activeclassname="active">
-        <FaUserFriends className="icon" />
-      </NavLink>
-      <NavLink to="/events" className="sidebar-link" activeclassname="active">
-        <FaCalendarAlt className="icon" />
-      </NavLink>
-      <NavLink to="/chat" className="sidebar-link" activeclassname="active">
-        <FaComments className="icon" />
-      </NavLink>
-      <NavLink to="/profile" className="sidebar-link" activeclassname="active">
-        <FaUser className="icon" />
-      </NavLink>
+      <div className="sidebar-content">
+        {menuItems.map((item, index) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            className={({ isActive }) => 
+              `sidebar-link ${isActive ? 'active' : ''} ${index === 0 ? 'home-link' : ''}`
+            }
+          >
+            <item.icon className="icon" />
+            <span className="tooltip">{item.label}</span>
+          </NavLink>
+        ))}
+      </div>
     </div>
   );
 };
