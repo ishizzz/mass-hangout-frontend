@@ -1,3 +1,4 @@
+/* Layout and Container */
 .groups-container {
   padding: 24px;
   max-width: 1200px;
@@ -61,8 +62,8 @@
 
 .search-icon {
   position: absolute;
-  left: 12px;
-  top: 50%;
+  left: 25px;
+  top: 43%;
   transform: translateY(-50%);
   color: #6b7280;
   width: 20px;
@@ -75,6 +76,12 @@
   border: 1px solid #e5e7eb;
   border-radius: 6px;
   font-size: 14px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #800000;
+  box-shadow: 0 0 0 2px rgba(128, 0, 0, 0.1);
 }
 
 /* Groups List */
@@ -115,16 +122,15 @@
   height: 24px;
 }
 
+.group-details {
+  flex: 1;
+}
+
 .group-details h3 {
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.group-details p {
-  color: #6b7280;
-  font-size: 14px;
   margin-bottom: 8px;
+  color: #111827;
 }
 
 .group-meta {
@@ -136,7 +142,8 @@
   margin-bottom: 8px;
 }
 
-.group-members {
+.group-time,
+.group-place {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -145,6 +152,7 @@
 .meta-icon {
   width: 16px;
   height: 16px;
+  color: #800000;
 }
 
 .group-type-tag {
@@ -167,12 +175,12 @@
   border-radius: 6px;
   font-weight: 500;
   cursor: pointer;
-  min-width: 100px;
+  min-width: 120px;
   text-align: center;
   transition: all 0.2s ease;
 }
 
-.group-action-btn:not(.joined):not(.secondary) {
+.group-action-btn:not(.joined):not(.invite) {
   background-color: #800000;
   color: white;
   border: none;
@@ -184,19 +192,19 @@
   color: #800000;
 }
 
-.group-action-btn.secondary {
+.group-action-btn.invite {
   background: none;
   border: 1px solid #e5e7eb;
   color: #6b7280;
 }
 
-.group-action-btn.secondary:hover {
+.group-action-btn.invite:hover {
   border-color: #800000;
   color: #800000;
   background-color: #fee2e2;
 }
 
-.group-action-btn:not(.joined):not(.secondary):hover {
+.group-action-btn:not(.joined):not(.invite):hover {
   background-color: #900000;
 }
 
@@ -287,9 +295,12 @@
   font-size: 14px;
 }
 
-.form-group textarea {
-  height: 100px;
-  resize: vertical;
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #800000;
+  box-shadow: 0 0 0 2px rgba(128, 0, 0, 0.1);
 }
 
 .radio-group {
@@ -338,4 +349,15 @@
 
 .cancel-button:hover {
   background: #f9fafb;
+}
+
+.group-action-btn.joined {
+  background-color: #f8d7da; /* Subtle red background */
+  color: #842029; /* Darker red text */
+  border: 1px solid #842029; /* Border matching text color */
+}
+
+.group-action-btn.joined:hover {
+  background-color: #f5c2c7; /* Slightly darker red on hover */
+  color: #6a1b1f; /* Darker red text on hover */
 }

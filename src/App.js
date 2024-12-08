@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from "react-router-dom";
-import Sidebar from "./components/Sidebar"; // Sidebar Component
+import Sidebar from "./components/Sidebar/Sidebar"; // Sidebar Component
 import Login from "./Pages/Login/Login"; // Login Page
 import Register from "./Pages/Register/Register"; // Register Page
 import ChatPage from "./Pages/Chat/ChatPage"; // Chat Page

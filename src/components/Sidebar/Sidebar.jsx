@@ -7,7 +7,6 @@ const Sidebar = () => {
   const menuItems = [
     { path: "/", icon: FaHome, label: "Home" },
     { path: "/groups", icon: FaUserFriends, label: "Groups" },
-    { path: "/events", icon: FaCalendarAlt, label: "Events" },
     { path: "/chat", icon: FaComments, label: "Chat" },
     { path: "/profile", icon: FaUser, label: "Profile" }
   ];

@@ -198,10 +198,11 @@
 .message-input {
   flex: 1;
   height: 40px;
-  padding: 8px 70px 8px 12px;
+  padding: 8px 200px 8px 12px;
   border: 1px solid #e5e7eb;
   border-radius: 6px;
   font-size: 14px;
+  width: 50%;
 }
 
 .message-input:focus {
@@ -237,4 +238,45 @@
   justify-content: center;
   color: #6b7280;
   font-size: 16px;
+}
+
+.chat-search-container {
+  padding: 12px 20px;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.chat-search-icon {
+  margin-right: 8px;
+  color: #6b7280;
+}
+
+.chat-search-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.chat-search-input:focus {
+  outline: none;
+  border-color: #800000;
+  box-shadow: 0 0 0 2px rgba(128, 0, 0, 0.1);
+}
+
+.message-input {
+  flex: 1;
+  height: 40px;
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 70%; /* Reduced width for a more compact input box */
+  margin-right: 10px; /* Add spacing between input and send button */
 }
