@@ -5,7 +5,7 @@ import "./Sidebar.css";
 
 const Sidebar = () => {
   const menuItems = [
-    { path: "/", icon: FaHome, label: "Home" },
+    { path: "/dashboard", icon: FaHome, label: "Home" },
     { path: "/groups", icon: FaUserFriends, label: "Groups" },
     { path: "/events", icon: FaCalendarAlt, label: "Events" },
     { path: "/chat", icon: FaComments, label: "Chat" },

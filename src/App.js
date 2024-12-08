@@ -7,8 +7,11 @@ import ChatPage from "./Pages/Chat/ChatPage"; // Chat Page
 import Groups from "./Pages/Groups/Groups"; // Chat Page
 import "./App.css"; // General styles for layout
 import Profile from "./Pages/Profile/Profile";
+import { UserProvider, useUser } from './UserContext'; // Import UserProvider
 
 const Dashboard = () => {
+  const { userEmail } = useUser();
+  console.log("Email inside dashboard " + userEmail)
   return (
     <div style={{ padding: "20px" }}>
       <h1>Dashboard</h1>
@@ -32,7 +35,7 @@ const App = () => {
       {/* Main content area */}
       <div className={`main-content ${hideSidebar ? "center-content" : ""}`}>
         <Routes>
-          <Route path="/" element={<Navigate to="/dashboard" />} /> {/* Default Route */}
+          <Route path="/" element={<Navigate to="/login" />} /> {/* Default Route */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
@@ -48,7 +51,9 @@ const App = () => {
 // Wrap App with Router to use `useLocation`
 const WrappedApp = () => (
   <Router>
-    <App />
+    <UserProvider> {/* Wrap the app with the UserProvider */}
+      <App />
+    </UserProvider>
   </Router>
 );
 
