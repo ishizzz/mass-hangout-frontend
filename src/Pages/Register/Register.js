@@ -62,7 +62,10 @@ const Register = () => {
 
    // Handle password validation on blur
    const handlePasswordBlur = () => {
-    if (!validatePassword(password)) {
+    if (password === "") {
+      setPasswordError('Password cannot be empty')
+    }
+    else if (!validatePassword(password)) {
       setPasswordError(
         'Password must be at least 8 characters long, contain letters, numbers, and at least one allowed special character (!@#$%^&*?)).'
       );

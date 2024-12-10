@@ -8,10 +8,9 @@ export const useUser = () => useContext(UserContext);
 
 // UserProvider component to wrap the app and provide the user context
 export const UserProvider = ({ children }) => {
-    const [userEmail, setUserEmail] = useState(null); // Email state to store the email of the logged-in user
-
+    const [user, setUser] = useState({ id: null, email: null });
     return (
-        <UserContext.Provider value={{ userEmail, setUserEmail }}>
+        <UserContext.Provider value={{ user, setUser }}>
             {children}
         </UserContext.Provider>
     );

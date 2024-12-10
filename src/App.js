@@ -10,7 +10,8 @@ import Profile from "./Pages/Profile/Profile";
 import { UserProvider, useUser } from './UserContext'; // Import UserProvider
 
 const Dashboard = () => {
-  const { userEmail } = useUser();
+  const {user} = useUser();
+  const userEmail = user.email;
   console.log("Email inside dashboard " + userEmail)
   return (
     <div style={{ padding: "20px" }}>

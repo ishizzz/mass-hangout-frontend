@@ -6,8 +6,10 @@ import config from '../../config/config';
 import { useUser } from '../../UserContext'; // Import the useUser hook
 
 const Profile = () => {
-  const { userEmail } = useUser();
-  console.log("Email id inside profile " + userEmail) 
+  const { user } = useUser();
+  const userEmail = user.email; 
+  console.log("Email id inside profile " + userEmail)
+  console.log("id is " + user.id) 
   const [isEditing, setIsEditing] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   // const [profileData, setProfileData] = useState({
@@ -107,9 +109,10 @@ const Profile = () => {
   
       // Handle the response
       const { code, message, data } = response.data;
-      if (response.status === 200 && code === 10010) {
-        alert("Profile updated successfully!");
+      if ((response.status === 200 || response.status === 201) && (code === 10010 || code === 10009)) {
         setProfileData(editedData); // Update the profile data with the latest values // Close the edit form
+        alert(message);
+
       } else {
         alert(message || "Failed to update profile.");
       }

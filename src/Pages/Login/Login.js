@@ -11,7 +11,7 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [emailError, setEmailError] = useState('');
   const navigate = useNavigate();
-  const { setUserEmail } = useUser(); 
+  const { setUser } = useUser(); 
   // Email validation function
   const validateEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -20,7 +20,7 @@ const Login = () => {
 
   // Handle email validation on blur
   const handleEmailBlur = () => {
-    if (!validateEmail(email)) {
+    if (email !== "" && !validateEmail(email)) {
       setEmailError('Invalid email format.');
     } else {
       setEmailError('');
@@ -54,6 +54,11 @@ const Login = () => {
     try {
       // Send POST request to the backend login endpoint using BASE_URL from config
         // Print the base URL to the console for debugging
+      if (email === "") {
+        setErrorMessage("Enter valid email")
+      } else if (password === "") {
+        setErrorMessage("Enter password")
+      }
       console.log("Base URL:", config.USER_SERVICE);
 
       const response = await axios.post(`${config.USER_SERVICE}/login`, {
@@ -65,7 +70,8 @@ const Login = () => {
       if (response.status === 200) {
         // Valid login, navigate to the dashboard
         if (response.data.code === 10004) {
-          setUserEmail(email); // Set the email in the context
+          setUser({ id: response.data.data.id, email: response.data.data.email }); // Set both id and email in the context
+// Set the email in the context
           navigate('/dashboard');
         } else {
           // Unexpected success response (optional handling)
